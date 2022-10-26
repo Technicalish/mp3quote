@@ -2,13 +2,13 @@ var express = require("express");
 var app = express();
 var fetch = (...args) => import("node-fetch").then(({ default: fetch }) => fetch(...args));
 var gTTS = require('gtts');
-app.get("/quote.mp3", async (request, response) => {
+app.get("/api/quote.mp3", async (request, response) => {
   await response.set("Content-Type", "audio/mpeg");
   await fetch("https://zenquotes.io/api/random").then(result => result.json()).then(async (data) => {
   response.redirect(302, "/custom.mp3?lang=en&text="+data[0].q+" By "+data[0].a)
   }).catch(console.log);
 });
-app.get('/custom.mp3', async (request, response) => {
+app.get('/api/custom.mp3', async (request, response) => {
   var query = request.query;
   var text = query.text || query.t;
   var lang = query.lang || query.l || "en";
