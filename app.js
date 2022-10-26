@@ -27,3 +27,4 @@ app.get("*", async (request, response) => {
   await response.status(404).sendFile(process.cwd() + "/404.html");
 });
 app.listen(3000);
+module.exports = app;
