@@ -24,7 +24,8 @@ app.get('/api/custom.mp3', async (request, response) => {
 app.get("/favicon.png", (request, response) => response.sendFile(process.cwd() + "/favicon.png"));
 
 app.get("*", async (request, response) => {
-  await response.status(404).sendFile(process.cwd() + "/404.html");
+response.end(Math.floor(Math.random()*1000).toString())
+  //await response.status(404).sendFile(process.cwd() + "/404.html");
 });
 app.listen(3000);
 module.exports = app;
