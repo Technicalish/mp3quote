@@ -18,7 +18,7 @@ app.get("/custom.mp3", async (request, response) => {
     var gtts = new gTTS(text, lang);
     await gtts.stream().pipe(response);
   } else {
-    await response.status(400).sendFile(process.cwd() + "/400.html");
+    await response.status(400).sendFile(process.cwd() + "/index.js");
   }
 });
 app.get("/favicon.png", (request, response) => response.sendFile(process.cwd() + "/favicon.png"));
