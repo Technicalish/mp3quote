@@ -1,9 +1,10 @@
 var express = require("express");
 var app = express();
-app.use(express.static("./public"), serveIndex("./public", { icons: true }));
 var serveIndex = require("serve-index");
 var fetch = (...args) => import("node-fetch").then(({ default: fetch }) => fetch(...args));
 var gTTS = require("gtts");
+app.use(express.static("./public"), serveIndex("./public", { icons: true }));
+
 app.get("/quote.mp3", async (request, response) => {
   await response.set("Content-Type", "audio/mpeg");
   await fetch("https://zenquotes.io/api/random").then(result => result.json()).then(async (data) => {
