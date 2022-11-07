@@ -1,6 +1,6 @@
 var express = require("express");
 var app = express();
-app.use("/", express.static("./public"), serveIndex("./public", { icons: true }));
+app.use(express.static("./public"), serveIndex("./public", { icons: true }));
 var serveIndex = require("serve-index");
 var fetch = (...args) => import("node-fetch").then(({ default: fetch }) => fetch(...args));
 var gTTS = require("gtts");
