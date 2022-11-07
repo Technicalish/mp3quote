@@ -22,8 +22,10 @@ app.get("/custom.mp3", async (request, response) => {
     await response.status(400).sendFile("./400.html", { root: __dirname });
   }
 });
-app.get("/favicon.png", (request, response) => response.sendFile(process.cwd() + "/favicon.png"));
-app.get("*", (req, res) => {
+app.get("/favicon.png", async (request, response) => {
+  await response.sendFile(process.cwd() + "/favicon.png");
+});
+app.get("*", async (request, response) => {
   await response.status(404).sendFile("./404.html", { root: __dirname });
 });
 app.listen(process.env.PORT || 3000);
