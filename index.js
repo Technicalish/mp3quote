@@ -23,7 +23,7 @@ app.get("/custom.mp3", async (request, response) => {
   }
 });
 app.get("/favicon.png", async (request, response) => {
-  await response.sendFile(process.cwd() + "/favicon.png");
+  await response.sendFile(__dirname + "/favicon.png");
 });
 app.get("*", async (request, response) => {
   await response.status(404).sendFile("./404.html", { root: __dirname });
