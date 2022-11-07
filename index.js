@@ -3,8 +3,6 @@ var app = express();
 var serveIndex = require("serve-index");
 var fetch = (...args) => import("node-fetch").then(({ default: fetch }) => fetch(...args));
 var gTTS = require("gtts");
-app.use(express.static("./public"), serveIndex("./public", { icons: true }));
-
 app.get("/quote.mp3", async (request, response) => {
   await response.set("Content-Type", "audio/mpeg");
   await fetch("https://zenquotes.io/api/random").then(result => result.json()).then(async (data) => {
@@ -25,5 +23,8 @@ app.get("/custom.mp3", async (request, response) => {
   }
 });
 app.get("/favicon.png", (request, response) => response.sendFile(process.cwd() + "/favicon.png"));
+app.get("*", (req, res) => {
+res.end(require("fs").readdirSync(process.cwd()));
+});
 app.listen(process.env.PORT || 3000);
 module.exports = app;
