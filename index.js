@@ -23,8 +23,6 @@ app.get("/custom.mp3", async (request, response) => {
 });
 app.get("/favicon.png", (request, response) => response.sendFile(process.cwd() + "/favicon.png"));
 
-app.get("*", async (request, response) => {
-  await response.status(404).sendFile(process.cwd() + "/404.html");
-});
+app.use(express.static("./public"));
 app.listen(process.env.PORT || 3000);
 module.exports = app;
