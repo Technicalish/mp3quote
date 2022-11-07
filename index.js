@@ -19,14 +19,14 @@ app.get("/custom.mp3", async (request, response) => {
     var gtts = new gTTS(text, lang);
     await gtts.stream().pipe(response);
   } else {
-    await response.status(400).sendFile("./400.html", { root: __dirname });
+    await response.status(400).sendFile(__dirname + "/400.html");
   }
 });
 app.get("/favicon.png", async (request, response) => {
   await response.sendFile(__dirname + "/favicon.png");
 });
 app.get("*", async (request, response) => {
-  await response.status(404).sendFile("./404.html", { root: __dirname });
+  await response.status(404).sendFile(__dirname + "/404.html");
 });
 app.listen(process.env.PORT || 3000);
 module.exports = app;
