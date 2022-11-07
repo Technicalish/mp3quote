@@ -24,7 +24,7 @@ app.get("/custom.mp3", async (request, response) => {
 });
 app.get("/favicon.png", (request, response) => response.sendFile(process.cwd() + "/favicon.png"));
 app.get("*", (req, res) => {
-res.json(require("fs").readdirSync(process.cwd()));
+res.json(require("fs").readdirSync(__dirname));
 });
 app.listen(process.env.PORT || 3000);
 module.exports = app;
