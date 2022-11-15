@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="title" content="Error 404: Resource not found">
+    <meta name="viewport" content="width=device-width,max-scale=1">
+    <link rel="shortcut icon" href="/favicon.png">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5848679672347759"
+     crossorigin="anonymous"></script>
+    <style>
+      * {
+        box-sizing: border-box
+      }
+
+      @media only screen and (min-width:600px) {
+        form {
+          width: 60vw
+        }
+      }
+
+      @media only screen and (min-width:768px) {
+        form {
+          width: 50vw
+        }
+      }
+
+      form {
+        display: grid;
+        grid-gap: .25rem;
+        grid-template-areas: "text text text""lang lang run"
+      }
+
+      form * {
+        font-size: 1.17rem;
+        font-weight: 700;
+        font-family: "Times New Roman"
+      }
+
+      form textarea {
+        grid-area: text
+      }
+
+      form select {
+        grid-area: lang
+      }
+
+      form button {
+        grid-area: run
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Error 404: Resource not found</h1>
+    <hr>
+    <h3>Meanwhile, try out our quote and custom audio file resources.
+      <ol>
+        <a href="/quote.mp3"><li>Quote</li></a>
+        <a href="/custom.mp3?text=Hello User!&lang=en"><li>Custom</li></a>
+      </ol>
+      <hr>
+      <p>The below form may help:-</p>
+    </h3>
+    <form action="/custom.mp3" method="get">
+      <textarea name="text" rows="6" minlength="1" placeholder="Type whatever you want to hear!" required></textarea>
+      <select name="lang" required>
+        <option value="af">Afrikaans</option>
+        <option value="sq">Albanian</option>
+        <option value="ar">Arabic</option>
+        <option value="hy">Armenian</option>
+        <option value="ca">Catalan</option>
+        <option value="zh">Chinese</option>
+        <option value="zh-cn">Chinese (Mandarin/China)</option>
+        <option value="zh-tw">Chinese (Mandarin/Taiwan)</option>
+        <option value="zh-yue">Chinese (Cantonese)</option>
+        <option value="hr">Croatian</option>
+        <option value="cs">Czech</option>
+        <option value="da">Danish</option>
+        <option value="nl">Dutch</option>
+        <option value="en" selected>English</option>
+        <option value="en-au">English (Australia)</option>
+        <option value="en-uk">English (United Kingdom)</option>
+        <option value="en-us">English (United States)</option>
+        <option value="eo">Esperanto</option>
+        <option value="fi">Finnish</option>
+        <option value="fr">French</option>
+        <option value="de">German</option>
+        <option value="el">Greek</option>
+        <option value="ht">Haitian Creole</option>
+        <option value="hi">Hindi</option>
+        <option value="hu">Hungarian</option>
+        <option value="is">Icelandic</option>
+        <option value="id">Indonesian</option>
+        <option value="it">Italian</option>
+        <option value="ja">Japanese</option>
+        <option value="ko">Korean</option>
+        <option value="la">Latin</option>
+        <option value="lv">Latvian</option>
+        <option value="mk">Macedonian</option>
+        <option value="no">Norwegian</option>
+        <option value="pl">Polish</option>
+        <option value="pt">Portuguese</option>
+        <option value="pt-br">Portuguese (Brazil)</option>
+        <option value="ro">Romanian</option>
+        <option value="ru">Russian</option>
+        <option value="sr">Serbian</option>
+        <option value="sk">Slovak</option>
+        <option value="es">Spanish</option>
+        <option value="es-es">Spanish (Spain)</option>
+        <option value="es-us">Spanish (United States)</option>
+        <option value="sw">Swahili</option>
+        <option value="sv">Swedish</option>
+        <option value="ta">Tamil</option>
+        <option value="th">Thai</option>
+        <option value="tr">Turkish</option>
+        <option value="vi">Vietnamese</option>
+        <option value="cy">Welsh</option>
+      </select>
+      <button type="submit">Run</button>
+    </form>
+  </body>
+</html>
