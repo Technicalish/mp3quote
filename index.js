@@ -1,8 +1,10 @@
 var express = require("express");
 var app = express();
-var serveIndex = require("serve-index");
 var fetch = (...args) => import("node-fetch").then(({ default: fetch }) => fetch(...args));
 var gTTS = require("gtts");
+var helmet = require("helmet");
+app.use(helmet({ contentSecurityPolicy: false }));
+app.use(express.static(__dirname + "/web"));
 app.get("/quote.mp3", async (request, response) => {
   await response.set("Content-Type", "audio/mpeg");
   await fetch("https://zenquotes.io/api/random").then(result => result.json()).then(async (data) => {
@@ -21,9 +23,6 @@ app.get("/custom.mp3", async (request, response) => {
   } else {
     await response.status(200).sendFile(__dirname + "/400.html");
   }
-});
-app.get("/favicon.png", async (request, response) => {
-  await response.sendFile(__dirname + "/favicon.png");
 });
 app.get("*", async (request, response) => {
   await response.status(200).sendFile(__dirname + "/404.html");

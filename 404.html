@@ -1,61 +1,26 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
-    <meta name="title" content="Error 400: Invalid parameters">
-    <meta name="viewport" content="width=device-width,max-scale=1">
-    <meta name="propeller" content="6a2de511f77379a33b596caa1c004b6a">
-    <link rel="shortcut icon" href="/favicon.png">
-    <script async="async" data-cfasync="false" src="//arsnivyr.com/1?z=5529407"></script>
-    <style>
-      * {
-        box-sizing: border-box
-      }
-
-      @media only screen and (min-width:600px) {
-        form {
-          width: 60vw
-        }
-      }
-
-      @media only screen and (min-width:768px) {
-        form {
-          width: 50vw
-        }
-      }
-
-      form {
-        display: grid;
-        grid-gap: .25rem;
-        grid-template-areas: "text text text""lang lang run"
-      }
-
-      form * {
-        font-size: 1.17rem;
-        font-weight: 700;
-        font-family: "Times New Roman"
-      }
-
-      form textarea {
-        grid-area: text
-      }
-
-      form select {
-        grid-area: lang
-      }
-
-      form button {
-        grid-area: run
-      }
-    </style>
+    <title>mp3quote.ga - HOME</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content="A free tool to convert text to audio in 42 different languages and 9 distinct accents"/>
+    <meta name="propeller" content="6a2de511f77379a33b596caa1c004b6a"/>
+    <link rel="shortcut icon" href="/favicon.png"/>
+    <link rel="stylesheet" href="/style.css"/>
+    <script defer src="/script.js"></script>
+    <script defer async="async" data-cfasync="false" src="https://arsnivyr.com/1?z=5529407"></script>
   </head>
   <body>
-    <h1>Error 404: Not found</h1>
-    <h3>
-      <a href="/quote.mp3">Want to listen a random quote?</a>
-      <hr>
-      <p>The below form may help:-</p>
-    </h3>
-    <form action="/custom.mp3" method="get">
+    <h1>mp3quote.ga - free tts service</h1>
+    <div id="div">
+      <p>Want to listen a random quote?</p>
+      <audio id="audio" controls></audio>
+      <br/>
+      <button id="button">Renew</button>
+      <hr/>
+      <p>Fill the below form for converting custom text:-</p>
+    </div>
+    <form id="form" action="/custom.mp3" method="get">
       <textarea name="text" rows="6" minlength="1" placeholder="Type whatever you want to hear!" required></textarea>
       <select name="lang" required>
         <option value="af">Afrikaans</option>
