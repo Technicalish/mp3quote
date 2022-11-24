@@ -2,12 +2,7 @@ var express = require("express");
 var app = express();
 var fetch = (...args) => import("node-fetch").then(({ default: fetch }) => fetch(...args));
 var gTTS = require("gtts");
-var helmet = require("helmet");
-app.use(
-  helmet({
-    contentSecurityPolicy: false,
-  })
-);
+app.disable("x-powered-by");
 app.use(express.static(__dirname + "/web"));
 app.get("/quote.mp3", async (request, response) => {
   await response.set("Content-Type", "audio/mpeg");
