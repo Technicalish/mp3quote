@@ -27,4 +27,3 @@ app.get("*", async (request, response) => {
   await response.status(200).sendFile(__dirname + "/404.html");
 });
 app.listen(process.env.PORT || 3000);
-module.exports = app;
