@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "node index.js",
+    "start": "node index.js",
+    "build": "npm install",
     "test": "echo \"Error: test not specified\" && exit 1"
   },
   "keywords": [],
