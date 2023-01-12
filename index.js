@@ -3,6 +3,7 @@ var app = express();
 var fetch = (...args) => import("node-fetch").then(({ default: fetch }) => fetch(...args));
 var gTTS = require("gtts");
 app.disable("x-powered-by");
+app.listen(process.env.PORT || 3000);
 app.use(express.static(__dirname + "/web"));
 app.get("/quote.mp3", async (request, response) => {
   await response.set("Content-Type", "audio/mpeg");
@@ -26,4 +27,3 @@ app.get("/custom.mp3", async (request, response) => {
 app.get("*", async (request, response) => {
   await response.status(200).sendFile(__dirname + "/404.html");
 });
-app.listen(process.env.PORT || 3000);
