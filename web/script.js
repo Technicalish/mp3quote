@@ -1,3 +1,4 @@
+new URLSearchParams(window.location.search).has("author") && alert("Mohd Ibrahim Irfan Shah");
 var audio = document.querySelector("#audio");
 var button = document.querySelector("#button");
 var form = document.querySelector("#form");
